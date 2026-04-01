@@ -2,9 +2,13 @@ import 'dotenv/config';
 import express from 'express';
 import "reflect-metadata"
 import { initializeDataSource } from './config/database';
+import userRoutes from './features/user/routes/UserRoutes';
 
 const app = express();
+app.use(express.json());
 const port = Number(process.env.PORT) || 3000;
+
+app.use('/api/users', userRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');

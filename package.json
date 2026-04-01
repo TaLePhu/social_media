@@ -9,7 +9,10 @@
     "start": "node dist/app.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:generate": "typeorm-ts-node-commonjs migration:generate -d src/config/database.ts",
+    "migration:run": "typeorm-ts-node-commonjs migration:run -d src/config/database.ts"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,7 @@
   "type": "commonjs",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/bcrypt": "^6.0.0",
     "@types/express": "^4.17.1",
     "@types/node": "^25.5.0",
     "eslint": "^10.0.3",
@@ -27,6 +31,7 @@
     "typescript-eslint": "^8.57.0"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.3.1",
     "express": "^4.17.1",
     "mysql2": "^3.20.0",

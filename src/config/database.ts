@@ -9,10 +9,11 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER || "root",
   password: process.env.DB_PASS || "123456",
   database: process.env.DB_NAME || "typeormdb_v1",
-  synchronize: true,
-  dropSchema: true, // Thêm dòng này: Nó sẽ xóa toàn bộ bảng và tạo lại mỗi khi app chạy
+  synchronize: false,
+  dropSchema: false, // Thêm dòng này: Nó sẽ xóa toàn bộ bảng và tạo lại mỗi khi app chạy
   logging: false,
   entities: [User, UserAdvance],
+  migrations: ["src/migration/*.ts"],
 });
 
 export const initializeDataSource = async () => {
